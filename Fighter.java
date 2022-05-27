@@ -1,58 +1,21 @@
+package Others;
+
 public class Fighter extends Character {
-    int  type = 1 ;
 
+    //private int seateight;
     private int strength,intelligence,vitality;
-
-    public Fighter(){
-        strength  =GameLogic.rand.nextInt(5)+6;
-        vitality  =GameLogic.rand.nextInt(5)+3;
-        intelligence  =GameLogic.rand.nextInt(5)+1;
+    private double hP;
+    public Fighter() {
+        super.setIntelligence(GameLogic.rand.nextInt(5)+6);
+        super.setStrength(GameLogic.rand.nextInt(5)+1);
+        super.setVitality(GameLogic.rand.nextInt(5)+3);
+        //hP=0.7*vitality+0.2*strength+0.1*intelligence;
+        //hp yazdırt burada
+        //eğer herhangi bir ekstra özellik tanımlamak stersen soonradan örnek gibi yap
+        //this.seatHeight=seatHeight;
+        System.out.println("Fighter generated. Strength:" + getStrength()+ " Vitality:"+ getVitality() + " Intelligence:" +getIntelligence()+ " HP:" + gethP());
     }
+    public void attack(Character character){
 
-    @Override
-    public int getType() {
-        return type;
-    }
-
-
-
-    @Override
-    void specialAction() {
-        super.specialAction();
-    }
-
-    @Override
-    void pick() {
-        super.pick();
-    }
-
-    @Override
-    void wield() {
-        super.wield();
-    }
-
-    @Override
-    void wear() {
-        super.wear();
-    }
-
-    @Override
-    void examine() {
-        super.examine();
-    }
-
-    @Override
-    void carryInventory() {
-        super.carryInventory();
-    }
-
-    @Override
-    void listInventory() {
-        super.listInventory();
-    }
-
-    @Override
-    public void round() {
-        super.round();
     }
 }
