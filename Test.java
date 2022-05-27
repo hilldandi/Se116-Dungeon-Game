@@ -1,75 +1,39 @@
+package Others;
+import java.util.Scanner;
+
 public class Test {
     public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        boolean isCont = true;
+        System.out.println("CANNON FODDER");
+        System.out.println("Welcome advanturer!");
+        //leveli gir ve sayısını çıktı aldır
+        //levele gerekli güncellemeleri yaptır
 
-        int round = 0;
+        while (isCont) {
+            System.out.println("Press\n1-Start the game \n2-Player Stats \n3-Close the game");
+            int choice = input.nextInt();
+            if (choice == 1) {
+                System.out.println("Your game is started:");
+                for (int i = 0; i < 3; i++) {
 
-        String input =GameLogic.input.nextLine();
-        String action =GameLogic.takeAction(input);
-        for (int i = 0; i <3 ; i++) {
-            int rand = GameLogic.rand.nextInt(3);
-            if(rand==0){
-                GameLogic.characters.add(new Fighter());
+                    if (i == 0) {
+                        Fighter f = new Fighter();
+                        GameLogic.characters.add(f);
+                    } else if (i == 1) {
+                        GameLogic.characters.add(new Healer());
+                    } else if (i == 2) {
+                        GameLogic.characters.add(new Tank());
+                    }
+                }break;
+
+                }
+            //else if (choice==2)
+
+            else if (choice == 3) {System.out.println("Your game is closing now...");
+                isCont = false;
             }
-            else if(rand==1){
-                GameLogic.characters.add(new Healer());
-            }
-            else if(rand==2){
-                GameLogic.characters.add(new Tank());
+            else {System.out.println("Please enter a valid number...");}}
             }
         }
-        for (int i = 0; i <GameLogic.characters.size() ; i++) {
-            System.out.println(GameLogic.characters.get(i).getType());
-        }
-        Character character = GameLogic.chooseCharacter(input);
 
-        System.out.println(character.getType());
-
-        //add while loop here nested while loop
-        while (true){
-            if(GameLogic.input.nextLine().equals("")){
-
-            }
-            // menu
-            input =GameLogic.input.nextLine();
-            Character c = GameLogic.chooseCharacter(input);
-            String action1 = GameLogic.takeAction(input);
-            String target = GameLogic.takeTarget(input);
-            if(action1.equals("attack")){
-                //c.attack(target);
-            }
-            else if(action1.equals("specialAction")){
-                c.specialAction();
-            }
-            else if(action1.equals("pick")){
-                c.pick();
-            }
-            else if(action1.equals("wear")){
-                c.wear();
-            }
-            else if(action1.equals("wield")){
-                c.wield();
-            }
-            else if(action1.equals("examine")){
-                c.examine();
-            }
-            else if(action1.equals("carryInventory")){
-                c.carryInventory();
-            }
-            else if(action1.equals("listInventory")){
-                c.listInventory();
-            }
-            else if(action1.equals("round")){
-                c.round();
-            }
-            else{
-                System.out.println("Invalid input");
-            }
-
-            round++;
-        }
-
-
-
-
-    }
-}
